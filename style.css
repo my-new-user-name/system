@@ -1,0 +1,656 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0;
+    padding: 10px;
+}
+
+/* Full-width header */
+.header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 0px;
+    padding: 15px 20px;
+    background-color: #78c0fc; /* Light gray */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensures it stays above other elements */
+}
+
+/* Right-side container */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between icons */
+}
+
+/* Icons */
+.header a {
+    text-decoration: none;
+    font-size: 26px;
+    color: #333;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.header a:hover {
+    color: #2790f1;
+    transform: scale(1.1);
+}
+
+/* Messages dropdown */
+.messages-dropdown {
+    position: relative;
+}
+
+.messages-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #000; /* Set color to black */
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+    margin-top: 5px;
+    font-size: 30px;
+}
+
+.messages-btn:hover {
+    color: #2790f1; /* Blue on hover */
+    transform: scale(1.1);
+}
+
+
+.messages-list {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 450px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.messages-dropdown:hover .messages-list {
+    display: block;
+    width: 368px;
+}
+
+.messages-list li {
+    padding: 10px;
+}
+
+.messages-list li a {
+    text-decoration: none;
+    color: #333;
+    background-color: white;
+    display: block;
+    font-size: 27px;
+}
+
+.messages-list li a:hover {
+    background: #f0f0f0;
+}
+
+/* Chat Box Styles */
+.chat-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    height: 400px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    margin-right: 80px;
+}
+
+.chat-box-header {
+    background: #508af5;
+    color: white;
+    padding: 15px;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-box-header h2 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.close-btn:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.chat-box-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #f9f9f9;
+}
+
+.chat-form {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #eee;
+    background: white;
+    border-radius: 0 0 10px 10px;
+}
+
+.chat-form input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    margin-right: 10px;
+}
+
+.chat-form button {
+    background: #508af5;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-form button:hover {
+    background: #45a049;
+}
+
+/* Messages Dropdown */
+.messages-dropdown {
+    position: relative;
+}
+
+.messages-btn {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+/* Sidebar for user list */
+.user-sidebar {
+    width: 25%;
+    background: #ffe4e6;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.user-sidebar h2 {
+    margin-top: 0;
+}
+
+.user-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.user-sidebar ul li {
+    margin: 10px 0;
+}
+
+.user-sidebar ul li a {
+    text-decoration: none;
+    color: #ff4d6d;
+    font-weight: bold;
+}
+
+/* Account info container */
+.account-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1px;
+    background-color: #aae4ff; /* Light gray background */
+    border-radius: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 99%;
+    max-width: 2000px; /* Adjust width as needed */
+    margin: 20px auto; /* Center it */
+    margin-left: 0;
+}
+
+/* Welcome section */
+.welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* User circle icon */
+.welcome i {
+    font-size: 40px; /* Adjust size */
+    color: #000; /* Default color */
+    transition: color 0.3s ease, transform 0.2s ease;
+    margin-left: 10px;
+    margin-bottom: 12px;
+}
+
+.welcome i:hover {
+    color: #333; /* Blue on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Ensure modal fills screen background */
+.modal {
+    display: none; /* Or block if you want to show it */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enables scrolling */
+    background-color: rgba(0, 0, 0, 0.5); /* Dimmed background */
+    z-index: 1000;
+}
+
+/* Scrollable modal content */
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh; /* Limit modal height */
+    overflow-y: auto; /* Enables vertical scroll */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal h2 {
+    text-align: center;
+}
+
+.modal label {
+    margin-top: 10px;
+}
+
+/* Form Styling */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, textarea {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: none;
+}
+
+/* Upload Button */
+#photo-container {
+    margin-top: 10px;
+}
+
+.modal button i {
+    font-size: 26px;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-button {
+    display: inline-block;
+    background:  rgb(142, 180, 216);
+    color: #000;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 26px;
+    border: none;
+    text-align: center;
+}
+
+.file-button:hover {
+    background: rgb(93, 140, 184);
+}
+
+#photo-preview-container img {
+  max-width: 50px;   /* adjust width as needed */
+  max-height: 30px;  /* adjust height as needed */
+  object-fit: cover;  /* keeps image proportionate and fills area */
+  margin: 5px;        /* space between images if multiple */
+  border-radius: 8px; /* optional: rounded corners */
+}
+
+
+.post-button {
+    width: 100%;
+    display: inline-block;
+    background:  rgb(142, 180, 216);
+    color: #000;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    border: none;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.add-product {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 15px;
+    flex-wrap: nowrap; /* Ensures elements stay on the same line */
+}
+
+/* ✅ Adjusted button width */
+.add-product .btn {
+    background-color: #729fbd;
+    color: #2e2e2e;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    white-space: nowrap;
+    width: 800px; /* Fixed width */
+    text-align: left; /* Align text to the left inside the button */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Aligns content to the start (left) */
+    padding-left: 20px; /* Adds space from the left edge */
+    margin-top: 12px;
+}
+
+
+.add-product .btn:hover {
+    background-color: #91b0c5;
+    transform: none;
+}
+
+/* Search form aligned to right */
+.add-product .search-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-grow: 1;
+    justify-content: flex-end;
+    margin-right: 10px; /* ✅ Added margin to right */
+}
+
+/* Input + button container */
+.search-input-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    overflow: hidden;
+    max-width: 400px;
+    width: 100%;
+    margin-top: 12px;
+}
+
+/* Search input */
+.search-input {
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    width: 100%;
+    outline: none;
+}
+
+/* Search icon button */
+.search-btn {
+    background-color: #729fbd;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-btn:hover {
+    background-color: #91b0c5;
+}
+
+/* Clear search link */
+.clear-search {
+    margin-left: 10px;
+    color: #729fbd;
+    font-size: 14px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.clear-search:hover {
+    text-decoration: underline;
+}
+
+.product-list {
+    width: 100%;
+    margin: 20px auto;
+    text-align: center;
+}
+
+h2 {
+    position: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Grid layout with single items per row */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Ensures each product takes a full row */
+    gap: 15px;
+    padding: 20px;
+}
+
+.product-item {
+    background: #f3eef0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: left;
+    font-weight: bold;
+    transition: none;
+    max-width: 1600px;
+    margin: 1;
+    margin-left: 0;
+    height: 385px;
+}
+
+.product-item:hover {
+    transform: none;
+}
+
+.product-item img {
+    width: 30%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 0;
+
+}
+
+.product-item .product-posted-by .bx {
+    font-size: 50px;
+    margin-left: 0;
+}
+
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+
+
+.report-product {
+    color: black;
+    font-size: 30px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.report-product:hover {
+    text-decoration: underline;
+}
+
+.product-info {
+    margin-top: 10px;
+}
+
+.product-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.product-details{
+    margin-top: 20px;
+}
+
+.product-price {
+    font-size: 18px;
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.product-actions {
+    margin-top: 3px;
+}
+
+.like-btn, .comment-btn, .view-comments-btn, .select-user {
+    background-color: #dbd8d9;
+    color: black;
+    border: none;
+    padding: 8px 12px;
+    margin: 15px;
+    margin-left: 0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.report-product {
+    background-color: #f3eef0;
+    color: black;
+    border: none;
+    padding: 8px 12px;
+    margin: 5px;
+    margin-left: 0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.like-btn:hover, .comment-btn:hover, .view-comments-btn:hover, .select-user:hover {
+    background-color: #cfcecf;
+}
+
+.report-product:hover{
+    background-color: #f3eef0;
+}
+
+.like-btn{
+    font-size: 30px;
+}
+
+.comment-btn{
+    font-size: 30px;
+}
+
+.report-product{
+    font-size: 30px;
+}
+
+.view-comments-btn{
+    font-size: 30px;
+}
+
+.select-user{
+    font-size: 30px;
+}
+
+.see-all-messages-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px; 
+    padding: 10px 20px;
+    background-color: #fff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 10px;
+    cursor: pointer;
+    z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+.see-all-messages-btn i {
+    font-size: 30px;
+}
+
+.see-all-messages-btn:hover {
+    background-color: #fff;
+}
